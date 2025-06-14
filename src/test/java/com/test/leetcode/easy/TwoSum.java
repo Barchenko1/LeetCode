@@ -58,6 +58,25 @@ public class TwoSum {
         Assertions.assertArrayEquals(result, twoSum2(new int[]{3,3}, 6));
     }
 
+    @Test
+    public void test4() {
+        int[] result = new int[] {0,1};
+        Assertions.assertArrayEquals(result, twoSumNew(new int[]{2,7,11,15}, 9));
+    }
+
+    private int[] twoSumNew(int[] nums, int target) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            int diff = target - nums[i];
+            for (int j = i; j < n - 1; j++) {
+                if (nums[j] == diff) {
+                    return new int[] {i, j};
+                }
+            }
+        }
+        return new int[]{};
+    }
+
     private int[] twoSum(int[] nums, int target) {
         int n = nums.length;
 

@@ -46,6 +46,22 @@ public class MaxSubArray {
         Assertions.assertEquals(23, maxSubArray(new int[] {5,4,-1,7,8}));
     }
 
+    @Test
+    public void test4() {
+        Assertions.assertEquals(23, maxSubArray2(new int[] {5,4,-1,7,8}));
+    }
+
+    private int maxSubArray2(int[] nums) {
+        int n = nums.length;
+        int currentSum = 0;
+        int maxSum = 0;
+        for (int i = 0; i < n; i++) {
+            currentSum = Math.max(nums[i], currentSum + nums[i]);
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
+
     private int maxSubArray(int[] nums) {
         int n = nums.length;
         int currentSum = nums[0];

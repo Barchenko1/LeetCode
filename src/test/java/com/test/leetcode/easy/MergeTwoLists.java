@@ -1,7 +1,6 @@
 package com.test.leetcode.easy;
 
 import com.test.leetcode.util.ListNode;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class MergeTwoLists {

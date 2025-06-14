@@ -55,6 +55,26 @@ public class RemoveDuplicates {
         Assertions.assertEquals(5, removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4}));
     }
 
+    @Test
+    public void test3() {
+        Assertions.assertEquals(5, removeDuplicates2(new int[]{0,0,1,1,1,2,2,3,3,4}));
+    }
+
+
+    private int removeDuplicates2(int[] nums) {
+        int n = nums.length;
+        int index = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] == nums[j]) {
+                    index++;
+                    break;
+                }
+            }
+        }
+        return index;
+    }
+
     private int removeDuplicates(int[] nums) {
         int n = nums.length;
         int index = 1;

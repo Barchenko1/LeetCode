@@ -52,6 +52,35 @@ public class Palindrome {
         Assertions.assertFalse(isPalindrome("a.b,."));
     }
 
+    @Test
+    public void test5() {
+        Assertions.assertTrue(isPalindrome2("A man, a plan, a canal: Panama"));
+    }
+
+    private boolean isPalindrome2(String str) {
+        int n = str.length();
+        int head = 0;
+        int tail = n - 1;
+        for (int i = 0; i < n; i++) {
+            char cHead = str.charAt(head);
+            char cTail = str.charAt(tail);
+            if (!Character.isLetterOrDigit(cHead)) {
+                head++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(cTail)) {
+                tail--;
+                continue;
+            }
+            if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
+                return false;
+            }
+            head++;
+            tail--;
+        }
+        return true;
+    }
+
     private boolean isPalindrome(String str) {
         if (str.length() == 0) {
             return true;
